@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/cart.css" />
+  </head>
+  <body>
+    <div class="container">
+      <% tobedisplayed.forEach((book) => { %>
+      <div class="cart">
+        <div class="cart-content">
+          <img src="<%= book.cover %>" class="img" />
+          <div class="info">
+            <p class="title"><%= book.book_title %></p>
+            <p class="price">₹499</p>
+
+            <a href="/buy?id=<%=book.bookid%>"
+              ><p class="button">Buy Now</p>
+            </a>
+            <form action="/removeitems" method="POST">
+              <input type="hidden" name="bookid" value="<%= book.bookid %>" />
+              <button type="submit" class="button">Remove</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+
+    <script>
+      function Remove() {
+        console.log("clicked");
+      }
+    </script>
+  </body>
+</html>

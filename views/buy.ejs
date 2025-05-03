@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/buy.css" />
+  </head>
+  <body>
+    <div class="flex">
+      <div class="book-section">
+        <div class="bookblock">
+          <% if(books){%>
+          <img src="<%=books.cover%>" alt="<%=books.title%>" class="img" />
+          <% }else{%>
+          <p>no book available</p>
+          <% }%>
+        </div>
+
+        <div class="price">
+          <button class="add" id="count+" onclick="Operation()">+</button>
+          <textarea class="number">1</textarea>
+          <button class="sub" id="count-" onclick="Operation()">-</button>
+          <h3>PRICE</h3>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="address">
+          <h2>Address</h2>
+          <div class="addressinputs">
+            <input
+              type="text"
+              class="details"
+              placeholder="Enter Street, lane number"
+            />
+            <input type="text" class="details" placeholder="Enter Area" />
+            <input type="text" class="details" placeholder="Enter City" />
+          </div>
+        </div>
+
+        <div class="payment">
+          <h2>Choose Payment Option</h2>
+
+          <div class="first">
+            <p class="pay">CREDIT/DEBIT CARD</p>
+
+            <input type="number" placeholder="CARD NUMBER" class="card" />
+            <div class="card-details">
+              <input type="text" placeholder="MM/YY" class="date" />
+              <input type="number" placeholder="CVV" class="cvv" />
+            </div>
+            <button class="btn">PAY</button>
+          </div>
+
+          <div class="payment-option upi">
+            <p class="pay">UPI</p>
+            <div class="payment-content">
+              <div class="upi-options">
+                <div class="upi-option">
+                  <div class="upi-icon">QR</div>
+                  <span>Scan QR</span>
+                </div>
+                <div class="upi-option">
+                  <div class="upi-icon">@</div>
+                  <span>UPI ID</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-option banking">
+            <p class="pay">NET BANKING</p>
+            <div class="payment-content">
+              <div class="bank-options">
+                <div class="bank-option">SBI</div>
+                <div class="bank-option">HDFC</div>
+                <div class="bank-option">ICICI</div>
+                <div class="bank-option">AXIS</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-option cash">
+            <p class="pay">CASH ON DELIVERY</p>
+            <div class="payment-content">
+              <p class="cod-text">Pay when your order is delivered</p>
+              <button class="cod-btn">Select</button>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="procced">
+          <button>PAY</button>
+        </div>
+      </div>
+
+      <script>
+        function Operation() {
+          const countElement = document.querySelector(".number");
+          const currentCount = parseInt(countElement.value) || 1;
+
+          if (event.target.id === "count+") {
+            countElement.value = currentCount + 1;
+          } else if (event.target.id === "count-" && currentCount > 1) {
+            countElement.value = currentCount - 1;
+          }
+        }
+
+        // Toggle payment options
+        document.querySelectorAll(".payment-option .pay").forEach((header) => {
+          header.addEventListener("click", function () {
+            const option = this.parentElement;
+            const isActive = option.classList.contains("active");
+
+            document.querySelectorAll(".payment-option").forEach((opt) => {
+              opt.classList.remove("active");
+            });
+
+            if (!isActive) {
+              option.classList.add("active");
+            }
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>

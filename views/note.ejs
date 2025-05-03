@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/note.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="head">
+      <%if(typeof books!=='undefined' && books&&books.description){%>
+      <p class="top">SAVE YOUR THOUGHT HERE !!</p>
+      <% }else{%>
+      <P class="heading"> SAVE YOUR THOUGHT HERE !!</P>
+      <% }%>
+    </div>
+    <br />
+    <br />
+    <div class="wrap">
+      <div class="bookimg">
+        <%if(typeof books!=='undefined' &&books&&books.cover){%>
+        <img
+          src="<%=books.cover%>"
+          alt="<%=books.title%>"
+          class="img"
+          id="image"
+        />
+        <% }else{ %>
+        <P>No Book Available</P>
+        <% }%>
+      </div>
+
+      <div class="write">
+        <form action="/note" method="post">
+          <% if(typeof books !== 'undefined' && books && books.id){ %>
+          <input
+            type="hidden"
+            name="bookid"
+            value="<%= books.id %>"
+            id="bookid"
+          />
+          <% } else { %>
+          <input type="hidden" name="bookid" value="" id="bookid" />
+          <% } %>
+          <input
+            class="note"
+            contenteditable="true"
+            name="thought"
+            id="text"
+            value="<%= thought%> %>"
+          />
+
+          <button type="submit" class="add" onclick="Submit()">SUBMIT</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function Submit() {
+        console.log("working");
+        event.preventDefault();
+        const bookid = document.getElementById("bookid").value;
+        const text = document.getElementById("text").value;
+
+        if (!bookid) {
+          console.log("book not found");
+        } else {
+          axios
+            .post(
+              "/note",
+              new URLSearchParams({
+                bookid: bookid,
+                thought: text,
+              })
+            )
+            .then((response) => {
+              console.log("note saved", response.data);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheet.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    
+   <a href="/cart">
+    <button class="add">CART</button>
+   </a> 
+    <div class="top">
+      <h1>BROWSE</h1>
+      <div class="searchbox">
+        <form action="/main" method="post">
+        <input
+          type="search"
+          class="search"
+          placeholder="Search for your book"
+          name="bookname"
+        />
+        <div class="btn">
+          <button type="submit" class="btn2" >
+          
+      
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+          </svg>
+          </button>
+          
+        </form>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <div class="wrapper">
+      <%books.forEach((book)=>{%>
+       
+      <div class="boxes" >
+        <img src="<%=book.cover%>" alt="<%= book.title %>">
+       
+          <!-- <p class="title"><%=//book.title%></p> -->
+        
+     
+
+   
+        <div class="feature">
+          <div class="note">
+            <a href="/note?id=<%= book.id %>"><p class="feat">Take Note</p></a>
+
+          </div>
+          <br />
+          <div class="cart">
+            <form action="/cart" method="POST">
+            <p class="feat" id="cart">
+        
+              <input type="hidden" name="bookid" value="<%= book.id %>" />
+              <input type="hidden" name="booktitle" value="<%= book.title %>" />
+              <input type="hidden" name="cover" value="<%= book.cover %>" />
+          <button type="submit" class="cart-btn" onclick="Cart()">
+            Add To Cart
+          </button>   
+            
+            </p>
+          </form>
+
+          </div>
+          <br />
+
+          <div class="buy">
+            <a href="/buy?id=<%=book.id%>"><p class="feat">Buy Now</p>  </a>
+          </div>
+          <br />
+          
+        </div>
+     
+    
+      </div>
+
+     
+      <%  })%>
+   
+   
+    </div>
+
+
+    <script>
+      function Cart(){
+console.log("clciekd");
+      alert("Added to Cart");
+      
+    }
+    </script>
+
+
+
+  </body>
+</html>

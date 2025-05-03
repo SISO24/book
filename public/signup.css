@@ -1,0 +1,203 @@
+body {
+  /*background: linear-gradient(to right, #1c1c1c, #575757);*/
+  background: linear-gradient(to right, #ff512f, #dd2476);
+}
+
+h1 {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 55px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.text {
+  width: 450px;
+  height: 200px;
+
+  margin: 5px;
+  padding: 5px;
+}
+.heading {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between;*/
+}
+.navbar {
+  position: absolute; /* Change to absolute or fixed */
+  top: -20px; /* Align to the top */
+  right: 8px; /* Stick to the rightmost edge */
+  display: flex;
+
+  width: 500px;
+  height: 100px;
+  font-weight: 300;
+  background-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  gap: 30px;
+  align-items: center; /* Centers items vertically */
+  justify-content: flex-end; /* Align items towards the right within the navbar */
+}
+
+ul {
+  display: flex;
+  gap: 25px;
+  list-style-type: none;
+  font-size: 20px;
+  justify-self: end;
+}
+li {
+  text-emphasis: none;
+  text-decoration: none;
+  color: rgb(255, 255, 255, 0.8);
+}
+p {
+  color: white;
+  font-size: 45px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 400px;
+
+  background-color: whitesmoke;
+  background-size: cover;
+  border-radius: 2rem;
+
+  gap: 15px;
+  float: right;
+  margin: 40px;
+  padding: 10px;
+}
+input {
+  margin: auto;
+  width: 350px;
+  height: 45px;
+  text-align: center;
+  justify-self: center;
+  border-radius: 2rem;
+}
+
+button {
+  align-self: center;
+  justify-content: center;
+  justify-self: center;
+}
+form {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+  align-content: center;
+  width: 400px;
+  height: 400px;
+}
+.register {
+  background-color: rgb(251, 71, 71);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: white;
+  border-radius: 2em;
+  border-color: rgb(251, 71, 71);
+  width: 275px;
+  height: 45px;
+}
+
+.bookimg {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  overflow: hidden;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+h2 {
+  color: black;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.under-text {
+  position: relative;
+  top: -15px;
+  font-size: 25px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: medium;
+}
+
+.extra {
+  width: 550px;
+  height: 300px;
+  display: flex;
+  gap: 20px;
+}
+
+.first,
+.second {
+  display: flex;
+  gap: 2px;
+  margin: 3px;
+  padding: 3px;
+  width: 250px;
+  height: 180px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 1);
+  fill-opacity: 5%;
+  border-radius: 10%;
+  color: black;
+}
+
+.t {
+  float: right;
+  font-size: 25px;
+  align-items: right;
+  color: black;
+}
+
+h3 {
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+.h3 {
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+
+.sub {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.sub2 {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  float: right;
+}
